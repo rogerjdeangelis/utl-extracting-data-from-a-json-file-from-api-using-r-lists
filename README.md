@@ -137,7 +137,17 @@ Problem: Create a SAS dataset for each of the three data structures in a JSON fi
     * convert xport file to SAS datasets, you can use single                                                                   
     'proc copy' but the variable names will be truncated;                                                                      
                                                                                                                                
-    libname xpt xport "d:/xpt/want.xpt";                                                                                       
+    libname xpt xport "d:/xpt/want.xpt";  
+    proc datasets lib=work mt=view mt=data;         
+      delete __ren001 want;                          
+    run;quit;                                       
+                                                
+     /* need this if you rerun                       
+     NOTE: Deleting WORK.__REN001 (memtype=DATA).    
+     NOTE: Deleting WORK.WANT (memtype=VIEW).        
+    */                                              
+                                                
+
     data ndcstat_r;                                                                                                            
       %utl_rens(xpt.ndcstat);                                                                                                  
       set ndcstat;                                                                                                             
