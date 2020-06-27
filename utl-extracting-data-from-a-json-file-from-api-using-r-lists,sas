@@ -136,7 +136,7 @@ WORK.SRCELST_R total obs=4
                                                                                                                               
 libname xpt xport "d:/xpt/want.xpt";  
 
-proc datasets lib=work mt=view mt=data noist;         
+proc datasets lib=work mt=view mt=data nolist;         
  delete __ren001 ndcstat history srcelst;                     
 run;quit;                                       
                                                 
