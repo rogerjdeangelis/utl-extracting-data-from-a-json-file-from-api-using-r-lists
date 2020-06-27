@@ -138,9 +138,10 @@ Problem: Create a SAS dataset for each of the three data structures in a JSON fi
     'proc copy' but the variable names will be truncated;                                                                      
                                                                                                                                
     libname xpt xport "d:/xpt/want.xpt";  
-    proc datasets lib=work mt=view mt=data;         
-      delete __ren001 want;                          
-    run;quit;                                       
+    
+    proc datasets lib=work mt=view mt=data noist;         
+       delete __ren001 ndcstat history srcelst;                     
+    run;quit;                                           
                                                 
      /* need this if you rerun                       
      NOTE: Deleting WORK.__REN001 (memtype=DATA).    
