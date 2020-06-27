@@ -139,7 +139,7 @@ Problem: Create a SAS dataset for each of the three data structures in a JSON fi
                                                                                                                                
     libname xpt xport "d:/xpt/want.xpt";  
     
-    proc datasets lib=work mt=view mt=data noist;         
+    proc datasets lib=work mt=view mt=data nolist;         
        delete __ren001 ndcstat history srcelst;                     
     run;quit;                                           
                                                 
